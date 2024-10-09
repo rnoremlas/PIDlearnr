@@ -5,9 +5,7 @@ Prueba para crear un paquete con tutoriales hechos con *learnr* y compartirlo en
 Para instalar el paquete desde GitHub hay que usar el paquete *remotes*:
 
 > install.packages("remotes")
-> 
 > library(remotes)
-> 
 > remotes::install_github("rnoremlas/PIDlearnr")
 
 Para usar los dos tutoriales que vienen en el paquete has de usar el paquete *learnr*:
