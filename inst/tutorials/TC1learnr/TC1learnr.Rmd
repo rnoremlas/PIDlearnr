@@ -1,0 +1,148 @@
+---
+title: "Técnicas Cuantitativas I"
+output: learnr::tutorial
+runtime: shiny_prerendered
+description: "Román Salmerón Gómez"
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Parte 1: pruebas iniciales
+
+### Ejercicio 1
+
+*Ejemplo de ejercicio con una caja vacía para introducir código. En la cabecera se especifica un nombre concreto para cada `chunk`, en este caso, se llama `ejer-1` (este comentario se entiende viendo el código, no la compilación).*
+
+Escribe el código para calcular la raíz cuadrada de 9:
+
+```{r ejer-1, exercise=TRUE}
+
+```
+
+### Ejercicio 2
+
+*Se puede escribir en la caja código (ya no está vacía) para dar alguna pista. El comando  `exercise.lines = 5` amplía las 3 líneas mostradas anteriormente por defecto a 5.*
+
+Escribe el código para calcular la exponencial de 5:
+
+```{r ejer-2, exercise=TRUE, exercise.lines = 5}
+exp()
+```
+
+### Ejercicio 3
+
+*La ayuda se puede ocultar creando un nuevo `chunk` especificando la opción `-hint` en la cabecera del `chunk`. Aquí es importante la referencia al nombre del ejercicio:  `ejer-3`.*
+
+Escribe el código para calcular la exponencial de 5:
+
+```{r ejer-3, exercise=TRUE, exercise.lines = 1}
+
+```
+
+```{r ejer-3-hint}
+exp()
+```
+
+### Ejercicio 4
+
+*Es de perogrullo, pero la opción `-hint` se puede usar para dar la solución en lugar de una pista.*
+
+Escribe el código para calcular la raíz cuadrada de 9:
+
+```{r ejer-4, exercise=TRUE}
+
+```
+
+```{r ejer-4-hint}
+sqrt(9)
+```
+
+## Parte 2: algunas pruebas tipo test
+
+### Ejercicio 5
+
+*Podemos crear preguntas tipo test con solución única o múltiple usando el comando `question` para crear la pregunta y `quiz` para agruparlas en caso de que sean más de una pregunta.*
+
+*Fijaros que en la primera pregunta sólo es posible contestar una vez y enseguida nos indica si la respuesta es correcta o no lo es (y en este caso nos dice cuál es la correcta). Mientras que en la segunda pregunta podemos intentarlo las veces que queramos, esto se consigue añadiendo (ver el código) la opción `allow_retry = TRUE` como argumento de  `question`.*
+
+Veamos algunas cuestiones sobre estadística descriptiva:
+
+```{r ejer-5}
+quiz(
+  question("¿Qué comando permite calcular la media en R?",
+    answer("median"),
+    answer("var"),
+    answer("mean", correct = TRUE),
+    answer("mode")
+  ),
+  question("¿Qué comando usarías para calcular el histograma de una variable estadística continua?", allow_retry = TRUE,
+    answer("barplot"),
+    answer("hist", correct = TRUE),
+    answer("stem"),
+    answer("ggplot")
+  )
+)
+```
+
+### Ejercicio 6
+
+*Ejemplo con una sola pregunta y dos respuestas correctas.*
+
+Vemos que en este caso no hacemos pregunta alguna relacionada con R:
+
+```{r ejer-6}
+  question("¿Qué representación gráfica no usarías con una variable estadística continua?", allow_retry = TRUE,
+    answer("Diagrama de sectores", correct = TRUE),
+    answer("Histograma"),
+    answer("Diagrama de barras", correct = TRUE)
+  )
+```
+
+## Parte 3: usamos conjuntos de datos 
+
+### Ejercicio 7
+
+*Aquí hay un ejercicio en el que el código que aparece en la caja (como en el Ejercicio 2) se evalúa previamente mediante la opción `exercise.eval`. También agregamos la solución con el segundo `chunk`etiquetado con la opción `-hint`.*
+
+Dado el conjunto de datos *mtcars*, calcule la cuasivarianza de la segunda variable:
+
+```{r ejer-7, exercise=TRUE, exercise.eval=TRUE}
+mtcars
+```
+
+```{r ejer-7-hint}
+var(mtcars$cyl)
+```
+
+### Ejercicio 8
+
+*Más de lo mismo usando un conjunto de datos que está en el mismo directorio que `prueba.Rmd`. En este caso me da fallo...*
+
+Dado el conjunto de datos *datos*, compruebe si la primera variable tiene una mediana superior a la segunda:
+
+```{r ejer-8, exercise=TRUE, exercise.eval=TRUE}
+datos = read.table("datos.csv", header=T, sep=";")
+head(datos)
+```
+
+```{r ejer-8-hint}
+median(datos$x) > median(datos$y)
+```
+
+### Ejercicio 9
+
+*Si los datos están en una página web parece que la cosa funciona.*
+
+Dado el conjunto de datos *datos*, compruebe si la primera variable tiene una mediana superior a la segunda:
+
+```{r ejer-9, exercise=TRUE, exercise.eval=TRUE}
+datos = read.table("https://www.ugr.es/local/romansg/material/WebTC1/TC1/datos.txt", header=T, sep=";")
+head(datos)
+```
+
+```{r ejer-9-hint}
+median(datos$Altura) > median(datos$Peso)
+```

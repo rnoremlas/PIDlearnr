@@ -1,0 +1,55 @@
+---
+title: "Técnicas Cuantitativas II"
+output: learnr::tutorial
+runtime: shiny_prerendered
+description: "Román Salmerón Gómez"
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Parte 1: pruebas iniciales
+
+### Ejercicio 1
+
+*Ejemplo de ejercicio con una caja vacía para introducir código. En la cabecera se especifica un nombre concreto para cada `chunk`, en este caso, se llama `ejer-1` (este comentario se entiende viendo el código, no la compilación).*
+
+Escribe el código para calcular la el cuadrado de la siguiente matriz $\mathbf{A} = \left(
+  \begin{array}{cc}
+    1 & 2 \\
+    3 & 5 
+  \end{array} \right)$:
+
+```{r ejer-1, exercise=TRUE}
+
+```
+
+### Ejercicio 2
+
+*Se puede escribir en la caja código (ya no está vacía) para dar alguna pista. El comando  `exercise.lines = 5` amplía las 3 líneas mostradas anteriormente por defecto a 5.*
+
+Escribe el código para calcular la inversa de la matriz anterior:
+
+```{r ejer-2, exercise=TRUE, exercise.lines = 5}
+exp()
+```
+
+## Parte 2: algunas pruebas tipo test
+
+### Ejercicio 3
+
+*Podemos crear preguntas tipo test con solución única o múltiple usando el comando `question` para crear la pregunta y `quiz` para agruparlas en caso de que sean más de una pregunta.*
+
+Veamos si sabes algo de inferencia:
+
+```{r ejer-3}
+  question("La inferencia no paramétrica se caracteriza por...", allow_retry = TRUE,
+    answer("no partir de supuestos de normalidad en la muestra", correct = TRUE),
+    answer("no tener parámetros"),
+    answer("ser más fácil que la paramétrica"),
+    answer("Ninguna de las anteriores es correcta")
+  )
+```
+
