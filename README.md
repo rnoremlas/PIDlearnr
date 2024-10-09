@@ -10,12 +10,8 @@ Para instalar el paquete desde GitHub hay que usar el paquete *remotes*:
 >
 > remotes::install_github("rnoremlas/PIDlearnr")
 
-Para usar los dos tutoriales que vienen en el paquete has de usar el paquete *learnr*:
+Para usar los dos tutoriales que vienen en el paquete has de usar los siguientes comandos:
 
-> install.packages("learnr") # si es necesario
->
-> library(learnr)
->
 > learnr::run_tutorial("TC1learnr", package= "PIDlearnr")
 >
 > learnr::run_tutorial("TC2learnr", package= "PIDlearnr")
